@@ -1,0 +1,239 @@
+% BETTER ERROR MESSAGES
+\errorcontextlines 10000
+
+% DOCUMENT ATTRIBUTES
+\documentclass[12pt, a4paper, parskip=full, openany, twoside]{book}
+% 12pt         : main font size
+% a4paper      : paper format
+% parskip=full : ???
+% openany      : no need for an additional (second) pagebreak after a chapter to move new chapters always to the right page
+\usepackage[
+	top=25mm,
+	bottom=25mm,
+	left=25mm,
+	right=25mm,
+	bindingoffset=10mm,
+	heightrounded,
+]{geometry}
+
+% allow pages to be not filled, to avoid stretching of content
+\raggedbottom
+
+% HEADER AND FOOTER
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{杨小龙}
+\fancyhead[CE,CO]{Notes}
+\fancyhead[RE,LO]{}
+
+\fancyfoot[LE,RO]{样小龙}
+\fancyfoot[CE,CO]{\thepage{}}
+\fancyfoot[LE,RO]{}
+
+% make chapter pages use the empty page style as well
+\usepackage{etoolbox}
+\patchcmd{\chapter}{plain}{fancy}{}{}
+\patchcmd{\part}{plain}{fancy}{}{}
+
+
+% MATH MODE
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\newcommand{\Hsquare}{%
+	\text{\fboxsep=-.15pt\fbox{\rule{0pt}{.75ex}\rule{.75ex}{0pt}}}%
+}
+\usepackage{etoolbox}% for '\AtBeginEnvironment' macro
+\AtBeginEnvironment{pmatrix}{\everymath{\displaystyle}}
+\AtBeginEnvironment{bmatrix}{\everymath{\displaystyle}}
+\AtBeginEnvironment{matrix}{\everymath{\displaystyle}}
+\AtBeginEnvironment{array}{\everymath{\displaystyle}}
+
+% define a command for phrases without breaks
+\def\nonbreaking{\hfil\penalty 100 \hfilneg \hbox}
+
+
+% FIX FOR PANDOC 1.14 and later
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% DOCUMENT META INFORMATION
+$if(title)$\title{$title$}$endif$
+$if(author)$\author{$author$}$endif$
+\usepackage{datetime}
+\date{\today\\\currenttime}
+% \date{}
+
+
+% TABLE OF CONTENTS
+% styling for article document class
+\usepackage{tocloft}
+
+\usepackage[dotinlabels]{titletoc}
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+\makeatother
+
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{1}
+
+\cftsetindents{chapter}{0mm}{2em}
+\cftsetindents{section}{0mm}{2em}
+% \cftsetindents{subsection}{0mm}{35mm}
+% \cftsetindents{subsubsection}{0mm}{45mm}
+% \cftsetindents{paragraph}{0mm}{55mm}
+
+% EURO Symbol
+\usepackage{eurosym}
+
+% FONT
+\usepackage{fontspec,xunicode}
+\usepackage[UTF8]{ctex}
+
+\setCJKmainfont[Scale=1.0]{WenQuanYi Micro Hei}
+
+% AUTOMATICAL PINYIN PHONETIC SCRIPT
+\newfontfamily{\DVS}{DejaVu Sans}
+% \newfontfamily{\DVS}{Sans}
+% \newfontfamily{\DVS}{Source Sans Pro}
+% \newfontfamily{\DVS}{Ubuntu}
+
+\usepackage{xpinyin}
+\xpinyinsetup{ratio={.7}, hsep={.5em plus .1em}, vsep={1.1em}, multiple={\color{red}}, pysep={.2em}, font=\DVS}
+
+
+\defaultfontfeatures{Mapping=tex-text, Scale=MatchLowercase} % what does this do? -- influences how quotes are rendered
+% \setmainfont[Scale=1]{Open Sans}
+% \setmainfont[Scale=1]{Source Sans Pro}
+\setmainfont[Scale=1]{Ubuntu}
+\setmonofont{Liberation Mono}
+\DeclareMathSizes{14}{12}{10}{8}
+
+
+
+% LIST ITEMS on the same page
+% requires the etoolbox, but it is imported further up already
+% \usepackage{etoolbox}
+\preto\subitem{\leavevmode\vadjust{\penalty10000}}
+
+% TABLES
+\usepackage{longtable}
+\setlength{\LTpre}{16pt}
+\setlength{\LTpost}{-12pt}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabu}
+\tabulinesep=4pt
+
+\usepackage{needspace}
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+% PREDEFINED COLORS
+\usepackage[dvipsnames]{xcolor}
+
+% LINKS
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	urlcolor=CadetBlue,
+	filecolor=Gray,
+	citecolor=Black,
+	linkcolor=Black
+}
+
+% FIGURES (wrapping text around figures, ...)
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{footnote}{chapter}
+
+% PARAGRAPH FORMATTING
+\setlength\parindent{0pt}
+
+% LANGUAGE SETTINGS (important for automatic breaking words)
+\usepackage[ngerman]{babel} % the last language in this line will be default for the document
+\selectlanguage{ngerman}
+
+
+
+% LAST PAGE NUMBER AVAILABILITY
+\usepackage{lastpage}
+
+\usepackage{titlesec} % Textüberschriften anpassen
+\titleformat{\chapter}[hang]{\LARGE\bfseries}{\thechapter.\quad}{0pt}{}{}
+\titleformat{\section}[hang]{\Large\bfseries}{\thesection.\quad}{0pt}{}
+\titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection.\quad}{0pt}{}
+\titleformat{\subsubsection}[hang]{\large}{\thesubsubsection\quad}{0pt}{}
+\titleformat{\paragraph}[hang]{\normalsize}{\theparagraph\quad}{0pt}{}
+
+\titlespacing{\chapter}{0pt}{-3em}{6pt}
+\titlespacing{\section}{0pt}{6pt}{6pt}
+\titlespacing{\subsection}{0pt}{6pt}{6pt}
+\titlespacing{\subsubsection}{0pt}{6pt}{6pt}
+\setlength{\parskip}{\baselineskip}
+%\titlespacing{\paragraph}{0pt}{6pt}{6pt}
+
+
+% Font size command
+\makeatletter
+\newcommand{\showfontsize}{\f@size{} pt}
+\makeatother
+
+% my own commands
+% needs multido, or orthers, so getting those packages:
+\newcommand{\gapunit}{.....}
+\newcommand{\tinygap}{\gapunit}
+
+
+% ===== EGREG VARIANT =====
+\makeatletter
+\newcount\my@repeat@count% initialize a new counter for the loop
+\newcommand{\myrepeat}[3]{% new command with 2 arguments
+	\begingroup% using a group here allows nested calls
+	\my@repeat@count=1% initialize at 1, so that there are argument - 1 iterations and the last iterations doesn't have a separator following it
+	\@whilenum\my@repeat@count<#1\do{#2#3\advance\my@repeat@count1}#2% as long as the iteration count is smaller than the argument, advance, meaning that the counter will be increased by 1
+	\endgroup%
+}
+\makeatother
+
+\newcommand{\shortgap}{%
+	\myrepeat{3}{\gapunit}{\ }
+}
+\newcommand{\mediumgap}{%
+	\myrepeat{5}{\gapunit}{\ }
+}
+\newcommand{\longgap}{%
+	\myrepeat[10]{\gapunit}{\ }
+}
+
+% ==============================
+% ========== DOCUMENT ==========
+% ==============================
+
+\begin{document}
+
+\frontmatter
+
+$if(title)$\maketitle$endif$
+\setcounter{page}{1} % page numbering should start at 1 at TOC
+\pagestyle{empty} % remove header and footer from empty page after TOC
+$if(toc)$\tableofcontents$endif$
+
+\mainmatter
+\pagestyle{fancy}
+\renewcommand{\baselinestretch}{1.25}
+% FOOTER
+\fancyfoot[LE,RO]{杨小龙}
+\fancyfoot[CE,CO]{Seite \thepage{} von \pageref{LastPage}}
+\fancyfoot[LE,RO]{}
+
+$body$
+
+\newpage
+\listoffigures
+\newpage
+\listoftables
+
+\end{document}
