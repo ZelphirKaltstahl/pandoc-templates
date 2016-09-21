@@ -43,6 +43,9 @@
 \newcommand{\Hsquare}{%
 	\text{\fboxsep=-.15pt\fbox{\rule{0pt}{.75ex}\rule{.75ex}{0pt}}}%
 }
+\newcommand{\divides}{\mid}
+\newcommand{\notdivides}{\nmid}
+
 \usepackage{etoolbox}% for '\AtBeginEnvironment' macro
 \AtBeginEnvironment{pmatrix}{\everymath{\displaystyle}}
 \AtBeginEnvironment{bmatrix}{\everymath{\displaystyle}}
