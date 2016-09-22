@@ -55,6 +55,26 @@
 % define a command for phrases without breaks
 \def\nonbreaking{\hfil\penalty 100 \hfilneg \hbox}
 
+% underline allowing line breaks
+\usepackage[normalem]{ulem}
+\newcommand\reduline{%
+  \bgroup\markoverwith{%
+    \textcolor{red}{\rule[-0.5ex]{2pt}{0.8pt}}%
+  }%
+  \ULon%
+}
+\newcommand\greenuline{%
+  \bgroup\markoverwith{%
+    \textcolor{green}{\rule[-0.5ex]{2pt}{0.8pt}}%
+  }%
+  \ULon%
+}
+\newcommand\blueuline{%
+  \bgroup\markoverwith{%
+    \textcolor{blue}{\rule[-0.5ex]{2pt}{0.8pt}}%
+  }%
+  \ULon%
+}
 
 % FIX FOR PANDOC 1.14 and later
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
