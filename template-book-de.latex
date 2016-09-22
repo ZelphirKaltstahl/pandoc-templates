@@ -75,6 +75,12 @@
   }%
   \ULon%
 }
+\newcommand\orangeuline{%
+  \bgroup\markoverwith{%
+    \textcolor{orange}{\rule[-0.5ex]{2pt}{0.8pt}}%
+  }%
+  \ULon%
+}
 
 % FIX FOR PANDOC 1.14 and later
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
