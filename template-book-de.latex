@@ -43,8 +43,13 @@
 \newcommand{\Hsquare}{%
 	\text{\fboxsep=-.15pt\fbox{\rule{0pt}{.75ex}\rule{.75ex}{0pt}}}%
 }
+\usepackage{amssymb}
 \newcommand{\divides}{\mid}
 \newcommand{\notdivides}{\nmid}
+\newcommand{\setR}{\mathbb{R}}
+\newcommand{\setQ}{\mathbb{Q}}
+\newcommand{\setZ}{\mathbb{Z}}
+\newcommand{\setN}{\mathbb{N}}
 
 \usepackage{etoolbox}% for '\AtBeginEnvironment' macro
 \AtBeginEnvironment{pmatrix}{\everymath{\displaystyle}}
@@ -81,6 +86,8 @@
   }%
   \ULon%
 }
+
+\newcommand{\newword}{\orangeuline}
 
 % FIX FOR PANDOC 1.14 and later
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
