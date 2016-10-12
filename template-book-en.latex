@@ -182,6 +182,13 @@ $if(author)$\author{$author$}$endif$
   \rlap{\checkbox}{\large\hspace{1pt}\xmark}%
 }
 
+%USAGE:
+%\begin{checklist}
+%\item[\done] Frame the problem
+%\item Write solution
+%\item[\wontdo] profit
+%\end{checklist}
+
 % PREDEFINED COLORS
 \usepackage[dvipsnames]{xcolor}
 
