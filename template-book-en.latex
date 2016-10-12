@@ -189,6 +189,14 @@ $if(author)$\author{$author$}$endif$
 %\item[\wontdo] profit
 %\end{checklist}
 
+% INVISIBLES
+\usepackage{color}
+\color{white}
+\newcommand{\invisible}[1]{
+  {\color{white}{#1}}
+}
+
+
 % PREDEFINED COLORS
 \usepackage[dvipsnames]{xcolor}
 
