@@ -165,6 +165,22 @@ $if(author)$\author{$author$}$endif$
 
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
+% TODO LISTS
+\usepackage{enumitem}
+\newcommand{\checkbox}{%
+	\text{\fboxsep=-.15pt\fbox{\rule{0pt}{1.5ex}\rule{1.5ex}{0pt}}}%
+}
+\newlist{checklist}{itemize}{2}
+\setlist[checklist]{label=\checkbox}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\done}{\rlap{\checkbox}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+  \hspace{-2.5pt}}
+\newcommand{\wontdo}{%
+  \rlap{\checkbox}{\large\hspace{1pt}\xmark}%
+}
+
 % PREDEFINED COLORS
 \usepackage[dvipsnames]{xcolor}
 
