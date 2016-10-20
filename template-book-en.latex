@@ -23,11 +23,11 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE,RO]{杨小龙}
-\fancyhead[CE,CO]{Notes}
+\fancyhead[LE,RO]{$if(author)$$author$$else$杨小龙$endif$}
+\fancyhead[CE,CO]{$if(title)$$title$$else$杨小龙$endif$}
 \fancyhead[RE,LO]{}
 
-\fancyfoot[LE,RO]{样小龙}
+\fancyfoot[LE,RO]{$if(author)$$author$$else$杨小龙$endif$}
 \fancyfoot[CE,CO]{\thepage{}}
 \fancyfoot[LE,RO]{}
 
@@ -302,7 +302,7 @@ $if(toc)$\tableofcontents$endif$
 \pagestyle{fancy}
 \renewcommand{\baselinestretch}{1.25}
 % FOOTER
-\fancyfoot[LE,RO]{杨小龙}
+\fancyfoot[LE,RO]{$if(author)$$author$$else$杨小龙$endif$}
 \fancyfoot[CE,CO]{Seite \thepage{} von \pageref{LastPage}}
 \fancyfoot[LE,RO]{}
 
