@@ -274,11 +274,21 @@ $if(author)$\author{$author$}$endif$
 	\myrepeat[10]{\gapunit}{\ }
 }
 
+% HYPHENATION
+%\usepackage{hyphenat}
+\pretolerance=5000
+\tolerance=9000
+\emergencystretch=0pt
+
 % ==============================
 % ========== DOCUMENT ==========
 % ==============================
 
 \begin{document}
+% HYPHENATION
+\righthyphenmin=4
+\lefthyphenmin=4
+
 
 \frontmatter
 
