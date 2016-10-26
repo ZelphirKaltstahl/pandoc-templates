@@ -226,6 +226,9 @@ $if(author)$\author{$author$}$endif$
   footnotecolor=blue
 }
 
+% footenote fontsize
+\renewcommand{\footnotesize}{\scriptsize}
+
 % FIGURES (wrapping text around figures, ...)
 \usepackage{wrapfig}
 \usepackage{float}
