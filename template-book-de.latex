@@ -199,13 +199,31 @@ $if(author)$\author{$author$}$endif$
 \usepackage[dvipsnames]{xcolor}
 
 % LINKS
-\usepackage{hyperref}
+\usepackage[
+  pdfauthor={$author$},
+  pdftitle={$title$},
+  pdfsubject={},
+  pdfkeywords={},
+  pdfproducer={Pandoc using Xelatex},
+  pdfcreator={Xelatex}]{hyperref}
+
+%\usepackage{etoolbox}
+% allow footnotes to be colored
+\makeatletter
+\def\@footnotecolor{red}
+\define@key{Hyp}{footnotecolor}{%
+  \HyColor@HyperrefColor{#1}\@footnotecolor%
+}
+\patchcmd{\@footnotemark}{\hyper@linkstart{link}}{\hyper@linkstart{footnote}}{}{}
+\makeatother
+
 \hypersetup{
 	colorlinks=true,
 	urlcolor=CadetBlue,
 	filecolor=Gray,
 	citecolor=Black,
-	linkcolor=Black
+	linkcolor=Black,
+  footnotecolor=blue
 }
 
 % FIGURES (wrapping text around figures, ...)
