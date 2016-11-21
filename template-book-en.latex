@@ -202,13 +202,22 @@ $if(author)$\author{$author$}$endif$
 
 % LINKS
 \usepackage[
-    pdfauthor={$if(author)$$author$$endif$},
+    pdfauthor={%
+        $for(author)$%
+            $author$%
+            $sep$, %
+        $endfor$%
+    },
     pdftitle={$if(title)$$title$$endif$},
     pdfsubject={$if(subject)$$subject$$endif$},
-    pdfkeywords={$if(keywords)$$keywords$$endif$},
+    pdfkeywords={%
+        $for(keywords)$%
+            $keywords$%
+            $sep$, %
+        $endfor$%
+    },
     pdfproducer={Pandoc using Xelatex},
     pdfcreator={$if(author)$$author$$endif$}]{hyperref}
-
 %\usepackage{etoolbox}
 % allow footnotes to be colored
 \makeatletter
