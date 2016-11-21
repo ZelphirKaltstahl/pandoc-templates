@@ -8,12 +8,12 @@
 % parskip=full : ???
 % openany      : no need for an additional (second) pagebreak after a chapter to move new chapters always to the right page
 \usepackage[
-	top=25mm,
-	bottom=25mm,
-	left=25mm,
-	right=25mm,
-	bindingoffset=10mm,
-	heightrounded,
+    top=25mm,
+    bottom=25mm,
+    left=25mm,
+    right=25mm,
+    bindingoffset=10mm,
+    heightrounded,
 ]{geometry}
 
 % allow pages to be not filled, to avoid stretching of content
@@ -41,7 +41,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \newcommand{\Hsquare}{%
-	\text{\fboxsep=-.15pt\fbox{\rule{0pt}{.75ex}\rule{.75ex}{0pt}}}%
+    \text{\fboxsep=-.15pt\fbox{\rule{0pt}{.75ex}\rule{.75ex}{0pt}}}%
 }
 \usepackage{amssymb}
 \newcommand{\divides}{\mid}
@@ -63,26 +63,26 @@
 % underline allowing line breaks
 \usepackage[normalem]{ulem}
 \newcommand\reduline{%
-  \bgroup\markoverwith{%
-    \textcolor{red}{\rule[-0.5ex]{2pt}{0.8pt}}%
+    \bgroup\markoverwith{%
+        \textcolor{red}{\rule[-0.5ex]{2pt}{0.8pt}}%
   }%
   \ULon%
 }
 \newcommand\greenuline{%
-  \bgroup\markoverwith{%
-    \textcolor{green}{\rule[-0.5ex]{2pt}{0.8pt}}%
+    \bgroup\markoverwith{%
+        \textcolor{green}{\rule[-0.5ex]{2pt}{0.8pt}}%
   }%
   \ULon%
 }
 \newcommand\blueuline{%
-  \bgroup\markoverwith{%
-    \textcolor{blue}{\rule[-0.5ex]{2pt}{0.8pt}}%
+    \bgroup\markoverwith{%
+        \textcolor{blue}{\rule[-0.5ex]{2pt}{0.8pt}}%
   }%
   \ULon%
 }
 \newcommand\orangeuline{%
-  \bgroup\markoverwith{%
-    \textcolor{orange}{\rule[-0.5ex]{2pt}{0.8pt}}%
+    \bgroup\markoverwith{%
+        \textcolor{orange}{\rule[-0.5ex]{2pt}{0.8pt}}%
   }%
   \ULon%
 }
@@ -92,8 +92,8 @@
 % FIX FOR PANDOC 1.14 and later
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% DOCUMENT META INFORMATION
-$if(title)$\title{$title$}$endif$
+    % DOCUMENT META INFORMATION
+    $if(title)$\title{$title$}$endif$
 $if(author)$\author{$author$}$endif$
 \usepackage{datetime}
 \date{\today\\\currenttime}
@@ -168,7 +168,7 @@ $if(author)$\author{$author$}$endif$
 % TODO LISTS
 \usepackage{enumitem}
 \newcommand{\checkbox}{%
-	\text{\fboxsep=-.15pt\fbox{\rule{0pt}{1.5ex}\rule{1.5ex}{0pt}}}%
+    \text{\fboxsep=-.15pt\fbox{\rule{0pt}{1.5ex}\rule{1.5ex}{0pt}}}%
 }
 \newlist{checklist}{itemize}{2}
 \setlist[checklist]{label=\checkbox}
@@ -178,7 +178,7 @@ $if(author)$\author{$author$}$endif$
 \newcommand{\done}{\rlap{\checkbox}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
   \hspace{-2.5pt}}
 \newcommand{\wontdo}{%
-  \rlap{\checkbox}{\large\hspace{1pt}\xmark}%
+    \rlap{\checkbox}{\large\hspace{1pt}\xmark}%
 }
 
 %USAGE:
@@ -192,7 +192,7 @@ $if(author)$\author{$author$}$endif$
 \usepackage{color}
 \color{white}
 \newcommand{\invisible}[1]{
-  {\color{white}{#1}}
+    {\color{white}{#1}}
 }
 
 % PREDEFINED COLORS
@@ -200,29 +200,29 @@ $if(author)$\author{$author$}$endif$
 
 % LINKS
 \usepackage[
-  pdfauthor={$author$},
-  pdftitle={$title$},
-  pdfsubject={},
-  pdfkeywords={},
-  pdfproducer={Pandoc using Xelatex},
-  pdfcreator={Xelatex}]{hyperref}
+    pdfauthor={$if(author)$$author$$endif$},
+    pdftitle={$if(title)$$title$$endif$},
+    pdfsubject={$if(subject)$$subject$$endif$},
+    pdfkeywords={$if(keywords)$$keywords$$endif$},
+    pdfproducer={Pandoc using Xelatex},
+    pdfcreator={$if(author)$$author$$endif$}]{hyperref}
 
 %\usepackage{etoolbox}
 % allow footnotes to be colored
 \makeatletter
 \def\@footnotecolor{red}
 \define@key{Hyp}{footnotecolor}{%
-  \HyColor@HyperrefColor{#1}\@footnotecolor%
+    \HyColor@HyperrefColor{#1}\@footnotecolor%
 }
 \patchcmd{\@footnotemark}{\hyper@linkstart{link}}{\hyper@linkstart{footnote}}{}{}
 \makeatother
 
 \hypersetup{
-	colorlinks=true,
-	urlcolor=CadetBlue,
-	filecolor=Gray,
-	citecolor=Black,
-	linkcolor=Black,
+    colorlinks=true,
+    urlcolor=CadetBlue,
+    filecolor=Gray,
+    citecolor=Black,
+    linkcolor=Black,
   footnotecolor=blue
 }
 
@@ -278,21 +278,21 @@ $if(author)$\author{$author$}$endif$
 \makeatletter
 \newcount\my@repeat@count% initialize a new counter for the loop
 \newcommand{\myrepeat}[3]{% new command with 2 arguments
-	\begingroup% using a group here allows nested calls
-	\my@repeat@count=1% initialize at 1, so that there are argument - 1 iterations and the last iterations doesn't have a separator following it
-	\@whilenum\my@repeat@count<#1\do{#2#3\advance\my@repeat@count1}#2% as long as the iteration count is smaller than the argument, advance, meaning that the counter will be increased by 1
-	\endgroup%
+    \begingroup% using a group here allows nested calls
+    \my@repeat@count=1% initialize at 1, so that there are argument - 1 iterations and the last iterations doesn't have a separator following it
+    \@whilenum\my@repeat@count<#1\do{#2#3\advance\my@repeat@count1}#2% as long as the iteration count is smaller than the argument, advance, meaning that the counter will be increased by 1
+    \endgroup%
 }
 \makeatother
 
 \newcommand{\shortgap}{%
-	\myrepeat{3}{\gapunit}{\ }
+    \myrepeat{3}{\gapunit}{\ }
 }
 \newcommand{\mediumgap}{%
-	\myrepeat{5}{\gapunit}{\ }
+    \myrepeat{5}{\gapunit}{\ }
 }
 \newcommand{\longgap}{%
-	\myrepeat[10]{\gapunit}{\ }
+    \myrepeat[10]{\gapunit}{\ }
 }
 
 % HYPHENATION
