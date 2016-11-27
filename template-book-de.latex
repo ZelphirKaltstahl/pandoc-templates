@@ -232,8 +232,8 @@ $if(author)$\author{$author$}$endif$
     urlcolor=CadetBlue,
     filecolor=Gray,
     citecolor=Black,
-    linkcolor=Black,
-  footnotecolor=blue
+    linkcolor=blue,
+    footnotecolor=blue
 }
 
 % footenote fontsize

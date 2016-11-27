@@ -229,12 +229,12 @@ $if(author)$\author{$author$}$endif$
 \makeatother
 
 \hypersetup{
-	colorlinks=true,
-	urlcolor=CadetBlue,
-	filecolor=Gray,
-	citecolor=Black,
-	linkcolor=Black,
-  footnotecolor=blue
+    colorlinks=true,
+    urlcolor=CadetBlue,
+    filecolor=Gray,
+    citecolor=Black,
+    linkcolor=blue,
+    footnotecolor=blue
 }
 
 \renewcommand{\footnotesize}{\scriptsize}
